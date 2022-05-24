@@ -32,7 +32,7 @@ public class CartBean {
 	
 	public void deleteCart(int itemCode) {
 		for(ItemBean item : items) {
-			if(item.getCode == itemCode) {
+			if(item.getCode() == itemCode) {
 				items.remove(item);
 				break;
 			}

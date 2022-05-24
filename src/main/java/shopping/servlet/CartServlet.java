@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import shopping.bean.CartBean;
+import shopping.bean.ItemBean;
+import shopping.dao.DAOException;
+import shopping.dao.ItemDAO;
+
 /**
  * Servlet implementation class CartServlet
  */
@@ -46,8 +51,8 @@ public class CartServlet extends HttpServlet {
 					session.setAttribute("cart", cart);}
 				
 				ItemDAO dao = new ItemDAO();
-				ItemBean bean = dao.findByPrimarykey(code);
-				cart.addCart(bean, quantity);
+				ItemBean bean = dao.findByPrimaryKey(code);
+				cart.addcart(bean, quantity);
 				gotoPage(request, response, "/cart.jsp");
 				
 			}else if (action.equals("delete")) {
