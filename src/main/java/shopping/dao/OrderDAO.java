@@ -28,7 +28,7 @@ public class OrderDAO {
 	public int saveOrder(CustomerBean customer, CartBean cart) throws DAOException{
 		//顧客番号の取得　Serial型のシーケンスから取得
 		int customerNumber = 0;
-		String sql = "SELECT nexttval('customer_code_seq')";
+		String sql = "SELECT nextval('customer_code_seq')";
 		
 		try(//データベースへの接続
 			Connection con = DriverManager.getConnection(url, user, pass);
@@ -70,7 +70,7 @@ public class OrderDAO {
 			PreparedStatement st = con.prepareStatement(sql);
 			ResultSet rs = st.executeQuery();){
 		   if (rs.next()) {
-			   customerNumber = rs.getInt(1);
+			   orderNumber = rs.getInt(1);
 		   }
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -105,8 +105,8 @@ public class OrderDAO {
 		List<ItemBean> items = cart.getItems();
 		for (ItemBean item : items) {
 			st.setInt(1, orderNumber);
-			st.setInt(2, orderNumber);
-			st.setInt(3, item.getCode());
+			st.setInt(2, item.getCode());
+			st.setInt(3, item.getQuantity());
 			st.executeUpdate();
 		}
 		return orderNumber;

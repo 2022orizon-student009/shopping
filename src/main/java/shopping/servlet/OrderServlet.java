@@ -77,6 +77,7 @@ public class OrderServlet extends HttpServlet {
 			session.removeAttribute("customer");
 			request.setAttribute("orderNumber", Integer.valueOf(orderNumber));
 			gotoPage(request, response, "/order.jsp");
+			
 		} else {
 			request.setAttribute("message", "正しく操作してください。");
 			gotoPage(request, response, "/errInternal.jsp");

@@ -26,8 +26,8 @@
 	<td align="right">${item.quantity}</td>
 	<td align="right">${item.price * item.quantity}円</td>
 </tr>
-</c:forEach>>
-<tr><td align="right" colspan="6">総計：＄{cart.total}円</td></tr>
+</c:forEach>
+<tr><td align="right" colspan="6">総計：${cart.total}円</td></tr>
 </table>
 
 <h3>お客様情報</h3>
