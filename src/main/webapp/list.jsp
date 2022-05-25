@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<jsp:include page="/menu.jsp">
+<jsp:include page="/menu.jsp" />
 
 <h3>商品一覧</h3>
 
@@ -36,3 +36,4 @@
 
 </body>
 </html>
+

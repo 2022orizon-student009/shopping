@@ -42,6 +42,7 @@ public class CartBean {
 	public int getTotal() {
 		return total;
 	}
+	
 	private void recalcTotal() {
 		total = 0;
 		for(ItemBean item :items) {

@@ -54,7 +54,7 @@ public class OrderServlet extends HttpServlet {
 	try {
 		String action = request.getParameter("action");
 		if (action == null || action.length() == 0 || action.equals("input_customer")) {
-			gotoPage(request, response, "/cutomerInfo.jsp");
+			gotoPage(request, response, "/customerInfo.jsp");
 		} else if (action.equals("confirm")) {
 			CustomerBean bean = new CustomerBean();
 			bean.setName(request.getParameter("name"));
@@ -76,7 +76,7 @@ public class OrderServlet extends HttpServlet {
 			session.removeAttribute("cart");
 			session.removeAttribute("customer");
 			request.setAttribute("orderNumber", Integer.valueOf(orderNumber));
-			gotoPage(request, response, "/errInternal.jsp");
+			gotoPage(request, response, "/order.jsp");
 		} else {
 			request.setAttribute("message", "正しく操作してください。");
 			gotoPage(request, response, "/errInternal.jsp");
