@@ -23,6 +23,6 @@ img {width: 250px;
 <h2>ご回答ありがとうございました。</h2>
 
 <h4>スペシャルスマホ壁紙ぜひ保存してください！</h4>
-<p><img src="kebab_image0.jpg" alt="ケバブ"></p>
+<p><img src="image/kebab_image0.jpg" alt="ケバブ"></p>
 </body>
 </html>
