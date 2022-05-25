@@ -37,7 +37,7 @@
   </tr>
    </c:forEach>
    <tr><td align="right" colspan="6">総計:${cart.total}円</td></tr>
-</table>
+
 
 <!--5000円以上買うと500円の送料が無料になる -->
 <c:if test="${cart.total ge 5000 }">
@@ -49,7 +49,7 @@
 <tr><td align="right" colspan="6">お支払い金額：${cart.total + 500}円</td></tr>
 </c:if>
 <!-- 送料無料↑ -->
-
+</table>
 
 <form action="/shopping/OrderServlet?action=input_customer" method="post">
 <input type="submit" value="注文する">
