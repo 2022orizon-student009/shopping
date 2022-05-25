@@ -56,20 +56,44 @@ public class OrderServlet extends HttpServlet {
 		if (action == null || action.length() == 0 || action.equals("input_customer")) {
 			gotoPage(request, response, "/customerInfo.jsp");
 		} else if (action.equals("confirm")) {
-			CustomerBean bean = new CustomerBean();
-			bean.setName(request.getParameter("name"));
-			bean.setAddress(request.getParameter("address"));
-			bean.setTel(request.getParameter("tel"));
-			bean.setEmail(request.getParameter("email"));
-			session.setAttribute("customer", bean);
-			gotoPage(request, response, "/confirm.jsp");
+			String name =request.getParameter("name");
+			String address = request.getParameter("address");
+			String tel = request.getParameter("tel");
+			String email = request.getParameter("email");
+			if(name == null || name.length() == 0 || address == null || address.length() == 0 || tel == null || tel.length() == 0 || email == null || email.length() == 0 ) {
+				request.setAttribute("message1", "お客様情報が入力されていません。");
+				gotoPage(request, response, "/customerInfo.jsp");
+				return;
+				
+				
+			}else {
+				
+		
+				try {
+					int telp = Integer.parseInt(tel);
+				}catch(NumberFormatException e) {
+					request.setAttribute("message2", "電話番号は数値を入力してください。");
+					gotoPage(request, response, "/customerInfo.jsp");
+					return;
+				}
+				CustomerBean bean = new CustomerBean();
+				bean.setName(request.getParameter("name"));
+				bean.setAddress(request.getParameter("address"));
+				bean.setTel(request.getParameter("tel"));
+				bean.setEmail(request.getParameter("email"));
+				session.setAttribute("customer", bean);
+				gotoPage(request, response, "/confirm.jsp");
+			}
+			
+		
+				
 		} else if (action.equals("order")) {
 			CustomerBean customer = (CustomerBean)session.getAttribute("customer");
 			if(customer == null) {
 				request.setAttribute("message", "正しく操作してください。");
 				gotoPage(request, response, "/errInternal.jsp");
 				return;
-			}
+		}
 			
 			OrderDAO order = new OrderDAO();
 			int orderNumber = order.saveOrder(customer, cart);
@@ -77,7 +101,6 @@ public class OrderServlet extends HttpServlet {
 			session.removeAttribute("customer");
 			request.setAttribute("orderNumber", Integer.valueOf(orderNumber));
 			gotoPage(request, response, "/order.jsp");
-			
 		} else {
 			request.setAttribute("message", "正しく操作してください。");
 			gotoPage(request, response, "/errInternal.jsp");
@@ -88,8 +111,6 @@ public class OrderServlet extends HttpServlet {
 		gotoPage(request, response, "/errInternal.jsp");
 	   }
 	}
-	
-		
 	
 	private void gotoPage(HttpServletRequest request, HttpServletResponse response, String page) throws ServletException, 
 	                     IOException {
@@ -106,3 +127,19 @@ public class OrderServlet extends HttpServlet {
 	}
 
 }
+
+/*CustomerBean bean = new CustomerBean();
+bean.setName("name");
+bean.setAddress("address");
+bean.setTel("tel");
+bean.setEmail("email");
+session.setAttribute("customer", bean);
+gotoPage(request, response, "/confirm.jsp");*/
+
+/*CustomerBean bean = new CustomerBean();
+bean.setName(request.getParameter("name"));
+bean.setAddress(request.getParameter("address"));
+bean.setTel(request.getParameter("tel"));
+bean.setEmail(request.getParameter("email"));
+session.setAttribute("customer", bean);
+gotoPage(request, response, "/confirm.jsp");*/
