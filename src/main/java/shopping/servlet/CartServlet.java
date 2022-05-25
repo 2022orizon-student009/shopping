@@ -51,7 +51,7 @@ public class CartServlet extends HttpServlet {
 					session.setAttribute("cart", cart);}
 				
 				ItemDAO dao = new ItemDAO();
-				ItemBean bean = dao.findByPrimaryKey(code);
+				ItemBean bean = dao.findByPrimaryKey(code);			
 				cart.addcart(bean, quantity);
 				gotoPage(request, response, "/cart.jsp");
 				

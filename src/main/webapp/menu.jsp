@@ -8,3 +8,4 @@
 </c:forEach>
 
 <a href="/shopping/CartServlet?action=show">カートを見る</a>
+　　全国一律送料500円!!5000円以上のお買い上げで送料無料!!(北海道・沖縄・離島除く)

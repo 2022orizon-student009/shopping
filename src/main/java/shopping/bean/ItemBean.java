@@ -7,17 +7,21 @@ public class ItemBean implements Serializable{
 	private String name;
 	private int price;
 	private int quantity;
+	@SuppressWarnings("unused")
+	private String image;
 	
-	public ItemBean(int code, String name, int price) {
+	public ItemBean(int code, String name, int price, String image) {
 		this.code = code;
 		this.name = name;
 		this.price = price;
+		this.image = image;
 	}
 
-	public ItemBean(int code, String name, int price, int quantity){
+	public ItemBean(int code, String name, int price, String image, int quantity){
 		this.code = code;
 		this.name = name;
 		this.price = price;
+		this.image = image;
 		this.quantity = quantity;
 	}
 	
@@ -54,6 +58,15 @@ public class ItemBean implements Serializable{
 		return quantity;
 	}
 
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}

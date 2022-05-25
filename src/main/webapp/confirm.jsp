@@ -30,6 +30,18 @@
 <tr><td align="right" colspan="6">総計：${cart.total}円</td></tr>
 </table>
 
+<!--5000円以上買うと500円の送料が無料になる -->
+<c:if test="${cart.total ge 5000 }">
+<tr><td align="right" colspan="6">送料：0 円</td></tr>
+<tr><td align="right" colspan="6">お支払金額：${cart.total}円</td></tr>
+</c:if>
+<c:if test="${cart.total lt 5000 }">
+<tr><td align="right" colspan="6">送料：500 円</td></tr>
+<tr><td align="right" colspan="6">お支払い金額：${cart.total + 500}円</td></tr>
+</c:if>
+<!-- 送料無料↑ -->
+
+
 <h3>お客様情報</h3>
 
 <form action="/shopping/OrderServlet?action=order" method="post">
@@ -47,8 +59,34 @@
 		<td>e-mail</td><td>${customer.email}</td>
 		</tr>
 	</table><br>
+	
+	<%
+	String payment = request.getParameter("pay");
+	String selectedPayment;
+	if(payment==null){
+		selectedPayment="選択されてません";
+	}else{
+		switch(payment){
+		case "card":
+			selectedPayment = "クレジットカード";
+			break;
+		case "bank":
+		 	selectedPayment = "銀行振込";
+		 	break;
+		case "cash":
+		 	selectedPayment = "代引き";
+		 	break;
+		default:
+			selectedPayment = "???";
+			break;
+		}
+	}
+	%>
+	<br>
+	<h3>お支払方法：<%=selectedPayment %></h3>
+	<br><br><br>
 	<input type="submit" value="この内容で注文">
-</form>>
+</form>
 </c:if>
 </body>
 </html>

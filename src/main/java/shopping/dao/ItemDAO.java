@@ -63,7 +63,8 @@ public class ItemDAO {
 						int code = rs.getInt("code");
 						String name = rs. getString("name");
 						int price = rs.getInt("price");
-						ItemBean bean = new ItemBean(code, name, price);
+						String image = rs.getString("image");
+						ItemBean bean = new ItemBean(code, name, price, image);
 						list.add(bean);
 					}
 					return list;
@@ -92,7 +93,8 @@ public ItemBean findByPrimaryKey(int key) throws DAOException{
 					int code = rs.getInt("code");
 					String name = rs.getString("name");
 					int price = rs.getInt("price");
-					ItemBean bean = new ItemBean(code, name, price);
+					String image = rs.getString("image");
+					ItemBean bean = new ItemBean(code, name, price, image);
 					return bean;
 				}else {
 					return null;
