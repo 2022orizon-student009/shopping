@@ -8,21 +8,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Welcome shopping!</title>
+<style type="text/css">
+	<!--
+	body {
+	background-color: #CCFF99;
+	}
+	-->
+</style>
 </head>
 <body>
 
 <jsp:include page="/menu.jsp" /><br>
 <h2>ご注文ありがとうございました。</h2>
-お客様の注文番号は<font color="red">${orderNumber}</font>になります。
+お客様の注文番号は<font color="red" size=5>${orderNumber}</font>になります。
 
 <%
 LocalDate today = LocalDate.now();
 %>
 
-<h3><%= today.plusDays(1)%>にお届け予定です。</h3>
+<h3><font color="red" size=5><%= today.plusDays(1)%></font>にお届け予定です。</h3>
 <hr>
 <h4>アンケートにお答えいただいた方にスペシャルスマホ壁紙をプレゼントします！</h4>
-☆☆☆<a href="/shopping/question.jsp">アンケートはこちら</a>☆☆☆
-
+<font color="FF4F02">★★★</font><a href="/shopping/question.jsp">アンケートはこちら</a><font color="FF4F02">★★★</font>
 </body>
 </html>
