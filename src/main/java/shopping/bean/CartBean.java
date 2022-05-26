@@ -6,7 +6,7 @@ import java.util.List;
 public class CartBean {
 	private List<ItemBean> items = new ArrayList<ItemBean>();
 	private int total;
-
+	
 	public CartBean() {}
 	
 	public List<ItemBean> getItems(){

@@ -7,7 +7,6 @@ public class ItemBean implements Serializable{
 	private String name;
 	private int price;
 	private int quantity;
-	@SuppressWarnings("unused")
 	private String image;
 	
 	public ItemBean(int code, String name, int price, String image) {
@@ -26,9 +25,8 @@ public class ItemBean implements Serializable{
 	}
 	
 	
-	public ItemBean() {
-		// TODO 自動生成されたコンストラクター・スタブ
-	}
+	public ItemBean() {}
+	
 
 	public int getCode() {
 		return code;

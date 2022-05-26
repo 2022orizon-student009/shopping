@@ -5,6 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Input Error</title>
+<style type="text/css">
+	<!--
+	body {
+	background-color: #CCFF99;
+	}
+	-->
+</style>
 </head>
 <body>
 

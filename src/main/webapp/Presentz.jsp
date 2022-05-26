@@ -7,12 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Welcome shopping!</title>
-<style type="text/css">
-	<!--
-	body {
-	background-color: #CCFF99;
-	}
-	-->
+<style>
 img {width: 250px; 
 	 height: 300px; 
 	 padding: 30x;
@@ -25,9 +20,9 @@ img {width: 250px;
 <body>
 
 <jsp:include page="/menu.jsp" /><br>
-<h2><font color="FF0461">🌸</font>ご回答ありがとうございました<font color="FF0461">🌸</font></h2>
+<h2>ご回答ありがとうございました。</h2>
 
 <h4>スペシャルスマホ壁紙ぜひ保存してください！</h4>
-<p><img src="kebab_image0.jpg" alt="ケバブ"></p>
+<p><img src="image/kebab_image0.jpg" alt="ケバブ"></p>
 </body>
 </html>

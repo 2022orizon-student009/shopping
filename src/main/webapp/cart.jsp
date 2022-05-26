@@ -5,7 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Welcome shopping!</title>
+<title>Insert title here</title>
+<style type="text/css">
+	<!--
+	body {
+	background-color: #CCFF99;
+	}
+	-->
+</style>
 </head>
 <body>
 
@@ -49,6 +56,7 @@
 <tr><td align="right" colspan="6">お支払い金額：${cart.total + 500}円</td></tr>
 </c:if>
 <!-- 送料無料↑ -->
+
 </table>
 
 <form action="/shopping/OrderServlet?action=input_customer" method="post">
@@ -56,7 +64,35 @@
 </form>
 </c:if>
 
+<br><h3>おすすめ商品</h3>
+<c:choose>
+	<c:when test="${reitem.code lt 4}" > 
+	<c:forEach items="${reccomend}" var="reitem" begin="1" end="3" step="1">
+	<img src="image/${reitem.image}" alt="画像">
+	商品番号：<b>${reitem.code}</b><br>
+	商品名：<b>${reitem.name}</b><br>
+		価格（税込）：<b>${reitem.price}円</b><br>
+	</c:forEach></c:when>
+	
+	
 
+	<c:when test="${reitem.code lt 7}" > 
+	<c:forEach items="${reccomend}" var="reitem" begin="4" end="6" step="1">
+	 <img src="image/${reitem.image}" alt="画像"> 
+	商品番号：<b>${reitem.code}</b><br>
+	商品名：<b>${reitem.name}</b><br>
+		価格（税込）：<b>${reitem.price}円</b><br>
+	</c:forEach>
+	</c:when>
+	
+	<c:otherwise>
+	<c:forEach items="${reccomend}" var="reitem" begin="7" end="9" step="1">
+	 <img src="image/${reccomend.image}" alt="画像"> 
+	商品番号：<b>${reitem.code}</b><br>
+		商品名：<b>${reitem.name}</b><br>
+		価格（税込）：<b>${reitem.price}円</b><br>
+	</c:forEach></c:otherwise>
+</c:choose>
 
 </body>
 </html>

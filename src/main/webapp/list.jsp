@@ -6,7 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>商品一覧</title>
-<style>
+<style type="text/css">
+	<!--
+	body {
+	background-color: #CCFF99;
+	}
+	-->
 img{
 diplay:block;
 width:120px; height:90px; padding:20px; border:8px lightblue solid;
