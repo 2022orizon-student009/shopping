@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Welcome shopping!</title>
+<title>注文確認</title>
 <style type="text/css">
 	<!--
 	body {
@@ -61,7 +61,7 @@ h3:before {
 </head>
 <body>
 
-<jsp:include page="/menu.jsp"/><br>
+<jsp:include page="/menu.jsp"/><br><br>
 <h2>下記の内容で注文を行いますか？</h2>
 <h3>ご注文商品</h3>
 
@@ -110,7 +110,7 @@ h3:before {
 		<tr>
 		<td>e-mail</td><td>${customer.email}</td>
 		</tr>
-	</table><br>
+	</table>
 	
 	<%
 	String payment = request.getParameter("pay");

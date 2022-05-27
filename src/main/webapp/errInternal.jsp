@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Input Error</title>
+<title>エラーメッセージ</title>
 <style type="text/css">
 	<!--
 	body {

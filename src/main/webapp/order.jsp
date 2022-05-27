@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Welcome shopping!</title>
+<title>注文完了</title>
 <style type="text/css">
 	<!--
 	body {
@@ -38,7 +38,7 @@ h2:before {
 </head>
 <body>
 
-<jsp:include page="/menu.jsp" /><br>
+<jsp:include page="/menu.jsp" /><br><br>
 <h2>ご注文ありがとうございました。</h2><br>
 お客様の注文番号は<font color="red" size=5>${orderNumber}</font>になります。
 

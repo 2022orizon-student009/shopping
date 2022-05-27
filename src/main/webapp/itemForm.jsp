@@ -35,8 +35,9 @@ background-color:#fffacd}
 <form>
 <input type="hidden" name="code" value="${category}">
 </form>
-<br>
-<a href="/shopping/ShowItemServlet?action=sort&key=price_asc&code=${category}" class="button2">値段の低い順</a>
+<br><a href="/shopping/ShowItemServlet?action=sort&key=price_asc&code=${category}" class="button2">値段の低い順</a>
 <a href="/shopping/ShowItemServlet?action=sort&key=price_desc&code=${category}" class="button2">値段の高い順</a>
+<br><br><br>
+
 
 <!-- cate -->

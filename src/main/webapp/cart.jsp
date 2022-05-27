@@ -5,15 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>カートの中身</title>
 <style type="text/css">
 	<!--
 	body {
 	background-color: #CCFF99;
 	background-image: url("/shopping/adpDSC_9246.jpg");
 	background-size: cover;
-	
-		.button2 {
+	}
+	.button2 {
   display       : inline-block;
   border-radius : 5%;
   font-size     : 18pt;
@@ -55,13 +55,10 @@ h2:before {
 }
 		
 		-->
-	}
-	
-		-->
 </style>
 </head>
 <body>
-<jsp:include page="/menu.jsp" /><br>
+<jsp:include page="/menu.jsp" /><br><br><br>
 
 
 <h3>現在のカートの中身</h3>
@@ -106,14 +103,15 @@ h2:before {
 
 </table>
 
+
 <form action="/shopping/OrderServlet?action=input_customer" method="post">
-<input type="submit" value="注文する">
+<input type="submit" value="注文する" class="button2"><br><br>
 </form>
 </c:if>
-
+<br><br>
 <!-- jsp にもコピーしてある -->
-	<br><br><br>
-	<jsp:include page="/reccomend.jsp" /><br>
+<jsp:include page="/reccomend.jsp" /><br>
+
 	
 
 </body>

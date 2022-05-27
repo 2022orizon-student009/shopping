@@ -96,7 +96,7 @@ h3:before {
 		<option value="5">5
 		</select>
 		個<br>
-		<input type="submit" value="カートに追加"><br></article>
+		<input type="submit" value="カートに追加" class="button2"><br></article>
 	
 	</form></c:forEach>
 	

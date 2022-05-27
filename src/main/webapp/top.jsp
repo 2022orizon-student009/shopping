@@ -56,8 +56,8 @@ h2:before {
 <jsp:include page="/menu.jsp" /><br>
 <br><h3>
 ～本、DVD、ゲームの総合通販サイト～<br><br>
-<span style="border-bottom: solid 5px yellow;"> 豊富な品揃え、5000以上ご購入で送料無料、注文の翌日にはお届け</span><br><br>
-買うならケバB！<br><br><br>
+<span style="border-bottom: solid 5px yellow;"> 豊富な品揃え、5000円以上ご購入で送料無料、注文の翌日にはお届け</span><br><br>
+買うならケバB！<br>
 </h3>
 <h2>ケバBの占いコーナー</h2>
 <Marquee>

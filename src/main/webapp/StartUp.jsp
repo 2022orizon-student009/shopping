@@ -86,7 +86,7 @@
 
 <meta charset="UTF-8">
 <link href="anim-box.css">
-<title>Insert title here</title>
+<title>ようこそケバBへ！</title>
 </head>
 <body>
 

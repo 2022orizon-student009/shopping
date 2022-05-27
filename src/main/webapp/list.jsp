@@ -100,7 +100,7 @@ h2:before {
 		</select>
 		個<br>
 		
-		<input type="submit" value="カートに追加"><br></p></article>
+		<input type="submit" value="カートに追加" class="button2"><br></p></article>
 	
 	</form>
 	

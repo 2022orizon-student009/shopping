@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>エラーです</title>
+<title>エラーメッセージ</title>
 <style type="text/css">
 body {
 	background-color: #CCFF99;

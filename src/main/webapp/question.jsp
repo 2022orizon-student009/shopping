@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Questionare</title>
+<title>アンケート</title>
 <style type="text/css">
 	<!--
 	body {
@@ -20,6 +20,27 @@
   border-radius: 100vh 0 0 100vh;
   background:#8FBC8F;
 }
+
+ .button2 {
+  display       : inline-block;
+  border-radius : 5%;
+  font-size     : 18pt;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 12px 12px;
+  background    : #ff7f00;
+  color         : #ffffff;
+  line-height   : 1em;
+  transition    : .3s;
+  box-shadow    : 6px 6px 3px #666666;
+  border        : 2px solid #ff7f00;
+}
+.button2:hover {
+  box-shadow    : none;
+  color         : #ff7f00;
+  background    : #ffffff;
+}
+
 
 h3:before {
   position: absolute;
@@ -55,7 +76,7 @@ h3:before {
 <input type="radio" name="reccomend" value="3">あまり勧めたくない<br>
 <input type="radio" name="reccomend" value="4">絶対勧めたくない<br>
 <br>
-<input type="submit" value="送信して壁紙をゲット！">
+<input type="submit" value="送信して壁紙をゲット！" class="button2">
 </form>
 </body>
 </html>

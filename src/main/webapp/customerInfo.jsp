@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Welcome shopping!</title>
+<title>お客様情報入力</title>
 <style type="text/css">
 	<!--
 	
@@ -62,7 +62,7 @@ h3:before {
 </head>
 <body>
 
-<jsp:include page="/menu.jsp"/><br>
+<jsp:include page="/menu.jsp"/><br><br><br>
 <h3>ご注文商品</h3>
 
 <c:if test="${not empty cart.items}">
@@ -83,7 +83,7 @@ h3:before {
 
 <!--5000円以上買うと500円の送料が無料になる↓ -->
 <c:if test="${cart.total ge 5000 }">
-<tr><td align="right" colspan="6">送料：= 0 円</td></tr>
+<tr><td align="right" colspan="6">送料：0 円</td></tr>
 <tr><td align="right" colspan="6">お支払金額：${cart.total}円</td></tr>
 </c:if>
 <c:if test="${cart.total lt 5000 }">
@@ -94,7 +94,7 @@ h3:before {
 </table>
 
 
-<h3>お客様情報を入力してください</h3>
+<h3>お客様情報を入力してください</h3><br>
 <font color = "red">${message1}</font>
 <font color = "red">${message2}</font>
 
@@ -126,9 +126,9 @@ h3:before {
 <td><input type="radio" name="pay" value="cash">代引き</td>
 </tr>
  </table>
-<br><br>
+<br>
 
-<input type="submit" value="確認画面へ"> 
+<input type="submit" value="確認画面へ" class="button2"> 
 </form>
 
 </c:if>

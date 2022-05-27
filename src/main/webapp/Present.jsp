@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Welcome shopping!</title>
+<title>プレゼント</title>
 <style type="text/css">
 	<!--
 	body {
@@ -27,7 +27,7 @@ img {width: 250px;
 </head>
 <body>
 
-<jsp:include page="/menu.jsp" /><br>
+<jsp:include page="/menu.jsp" /><br><br><br>
 <h2><font color="FF0461">🌸</font>ご回答ありがとうございました<font color="FF0461">🌸</font></h2>
 
 <h4>スペシャルスマホ壁紙ぜひ保存してください！</h4>
