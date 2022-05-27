@@ -94,9 +94,8 @@
 		}
 	}
 	%>
-	<br>
 	<h3>お支払方法：<%=selectedPayment %></h3>
-	<br><br><br>
+	<br>
 	<input type="submit" value="この内容で注文">
 </form>
 </c:if>

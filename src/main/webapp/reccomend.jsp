@@ -19,16 +19,18 @@
 	
 	-->
 img{
-diplay:block;
-width:120px; height:90px; padding:20px; border:8px green solid;
+width:150px; height:110px; padding:15px; border:8px green solid;
 }
 p{
-display:block;
-width:250px; height:150px; padding:15px; 
+padding:5px;
+width:250px; height:150px; 
 }
-form{
-display:flex;
-}
+
+
+article{width:260px;
+float:left;}
+
+
 
 </style>
 </head>
@@ -37,13 +39,12 @@ display:flex;
 <br><h3>おすすめ商品</h3>
 
 
-
-<c:forEach items="${items}" var="item">
+<c:forEach items="${reccomendlist}" var="item" begin="0" end="2" step="1">
 	<form action="/shopping/CartServlet?action=add" method="post">
 		<input type="hidden" name="item_code" value="${item.code}">
-		<input type="hidden" name="code" value="${category}">
+		<input type="hidden" name="code" value="${requestScope.category}">
 		
-				
+		<article>	
 		<img src="image/${item.image}" alt="画像">
 		<p>商品番号：<b>${item.code}</b><br>
 		商品名：<b>${item.name}</b><br>
@@ -57,12 +58,10 @@ display:flex;
 		<option value="5">5
 		</select>
 		個<br>
-		<input type="submit" value="カートに追加"><br></p>
+		<input type="submit" value="カートに追加"><br></article>
 	
-	</form>
+	</form></c:forEach>
 	
-
-</c:forEach>
 
 
 

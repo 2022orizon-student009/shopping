@@ -48,5 +48,6 @@ public class CartBean {
 		for(ItemBean item :items) {
 			total += item.getPrice() * item.getQuantity(); 
 		}
-	}
+		
+			}
 }

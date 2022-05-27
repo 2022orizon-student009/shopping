@@ -17,15 +17,13 @@
 	-->
 img{
 diplay:block;
-width:120px; height:90px; padding:20px; border:8px green solid;
+width:150px; height:110px; padding:15px; border:8px green solid;
 }
 p{
-display:block;
 width:250px; height:150px; padding:15px; 
 }
-form{
-display:flex;
-}
+article{width:260px;
+float:left;}
 
 </style>
 
@@ -43,7 +41,9 @@ display:flex;
 <c:forEach items="${items}" var="item">
 	<form action="/shopping/CartServlet?action=add" method="post">
 		<input type="hidden" name="item_code" value="${item.code}">
-		<input type="hidden" name="code" value="${category}">
+		<input type="hidden" name="code" value="${requestScope.category}">
+		
+		<article>
 		<img src="image/${item.image}" alt="画像">
 		<p>商品番号：<b>${item.code}</b><br>
 	商品名：<b>${item.name}</b><br>
@@ -58,7 +58,7 @@ display:flex;
 		</select>
 		個<br>
 		
-		<input type="submit" value="カートに追加"><br></p>
+		<input type="submit" value="カートに追加"><br></p></article>
 	
 	</form>
 	

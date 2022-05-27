@@ -1,6 +1,8 @@
 package shopping.servlet;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -52,7 +54,17 @@ public class CartServlet extends HttpServlet {
 					session.setAttribute("cart", cart);}
 				
 				ItemDAO dao2 = new ItemDAO();
-				ItemBean bean = dao2.findByPrimaryKey(code);	
+				ItemBean bean = dao2.findByPrimaryKey(code);
+				
+				int categoryCode = Integer.parseInt(request.getParameter("code"));
+				ItemDAO dao = new ItemDAO();
+				List<ItemBean> reccomends = dao.findByCategory(categoryCode);
+				
+			    Collections.shuffle(reccomends);
+			   
+			     
+			     request.setAttribute("reccomendlist" , reccomends);
+				request.setAttribute("category" ,categoryCode);
 				
 				cart.addcart(bean, quantity);	
 				gotoPage(request, response, "/cart.jsp");
