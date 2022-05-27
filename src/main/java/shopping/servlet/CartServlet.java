@@ -34,6 +34,7 @@ public class CartServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+				
 		try {
 			String action = request.getParameter("action");
 			if(action == null || action.length()==0 || action.equals("show")) {
@@ -50,11 +51,13 @@ public class CartServlet extends HttpServlet {
 					cart = new CartBean();
 					session.setAttribute("cart", cart);}
 				
-				ItemDAO dao = new ItemDAO();
-				ItemBean bean = dao.findByPrimaryKey(code);			
-				cart.addcart(bean, quantity);
+				ItemDAO dao2 = new ItemDAO();
+				ItemBean bean = dao2.findByPrimaryKey(code);	
+				
+				cart.addcart(bean, quantity);	
 				gotoPage(request, response, "/cart.jsp");
 				
+			
 			}else if (action.equals("delete")) {
 					HttpSession session = request.getSession(false);
 						if(session == null) {

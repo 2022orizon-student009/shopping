@@ -9,8 +9,13 @@
 <title>Welcome shopping!</title>
 <style type="text/css">
 	<!--
+	
 	body {
 	background-color: #CCFF99;
+	background-image: url("/shopping/adpDSC_9246.jpg");
+	background-size: cover;
+	}
+	
 	}
 	-->
 </style>
@@ -70,7 +75,7 @@
 </table>
 
 <h3>お支払い方法を選択してください</h3>
-<input type="radio" name="pay" value="card">クレジットカード
+<input type="radio" name="pay" value="card" required>クレジットカード
 <input type="radio" name="pay" value="bank">銀行振込
 <input type="radio" name="pay" value="cash">代引き
 

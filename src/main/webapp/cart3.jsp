@@ -5,20 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-	<!--
-	body {
-	background-color: #CCFF99;
-	background-image: url("/shopping/adpDSC_9246.jpg");
-	background-size: cover;
-	}
-	
-		-->
-</style>
+<title>Welcome shopping!</title>
 </head>
 <body>
 
+<jsp:include page="/menu.jsp" /><br>
 <h3>現在のカートの中身</h3>
 
 <c:if test="${empty cart.items}">
@@ -58,7 +49,6 @@
 <tr><td align="right" colspan="6">お支払い金額：${cart.total + 500}円</td></tr>
 </c:if>
 <!-- 送料無料↑ -->
-
 </table>
 
 <form action="/shopping/OrderServlet?action=input_customer" method="post">
@@ -66,10 +56,7 @@
 </form>
 </c:if>
 
-<!-- jsp にもコピーしてある -->
-<jsp:include page="/reccomend.jsp" /><br>
 
-	
 
 </body>
 </html>

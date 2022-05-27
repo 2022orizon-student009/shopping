@@ -14,7 +14,19 @@
 	<!--
 	body {
 	background-color: #CCFF99;
+	background-image: url("/shopping/adpDSC_9246.jpg");
+	background-size: cover;
 	}
+	h1{
+	font-family:"Arial Black";
+	font-size: 3.4rem;
+  	color: #fff;
+  	text-shadow:-8px 6px 0 #000;
+  	background:green;
+  	font-weight: bold;
+  	text-align: center
+	}
+	
 	-->
 	.flame {
 padding: 1px;

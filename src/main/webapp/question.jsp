@@ -9,8 +9,10 @@
 	<!--
 	body {
 	background-color: #CCFF99;
+	background-image: url("/shopping/adpDSC_9246.jpg");
+	background-size: cover;
 	}
-	-->
+		-->
 </style>
 </head>
 <body>

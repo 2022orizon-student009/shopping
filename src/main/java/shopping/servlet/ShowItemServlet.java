@@ -34,6 +34,41 @@ public class ShowItemServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		try {
+			request.setCharacterEncoding("UTF-8");
+			String action = request.getParameter("action");
+			//ItemDAO dao = new ItemDAO();//
+			
+			if(action == null || action.length() == 0) {
+				gotoPage(request,response, "/top.jsp");
+				/*List<ItemBean> list = dao.findAll();
+				request.setAttribute("items", list);
+				gotoPage(request, response, "/top.jsp");*/
+			}
+			else if (action.equals("sort")) {
+				String key = request.getParameter("key");
+				int categoryCode = Integer.parseInt(request.getParameter("code"));
+				ItemDAO dao = new ItemDAO();
+				List<ItemBean> list;
+				if(key.equals("price_asc")) {
+					list = dao.sortPrice(true, categoryCode);
+				} else {
+					list = dao.sortPrice(false, categoryCode);
+				}
+			request.setAttribute("category", categoryCode);
+			request.setAttribute("items", list);
+			gotoPage(request, response, "/list.jsp");
+			}
+		} catch (DAOException e) {
+			e.printStackTrace();
+			request.setAttribute("message", "内部エラーが発生しました。");
+			gotoPage(request, response, "/errInternal.jsp");
+		}
+
+		
+		
+		
 		// TODO Auto-generated method stub
 	try {
 		String action = request.getParameter("action");
@@ -44,8 +79,10 @@ public class ShowItemServlet extends HttpServlet {
 			ItemDAO dao = new ItemDAO();
 			List<ItemBean> list = dao.findByCategory(categoryCode);
 			//Listをリクエストスコープに入れてJSPへフォワード
-			request.setAttribute("items", list);
+			request.setAttribute("items" , list);
+			request.setAttribute("category" ,categoryCode);
 			gotoPage(request, response, "/list.jsp");
+			
 		} else {
 			request.setAttribute("message", "正しく操作してください");
 			gotoPage(request, response, "/errInternal.jsp");
@@ -53,7 +90,7 @@ public class ShowItemServlet extends HttpServlet {
 	} catch (DAOException e) {
 		e.printStackTrace();
 		request.setAttribute("message", "内部エラーが発生しました。");
-		gotoPage(request, response, "errInternal.jsp");
+		gotoPage(request, response, "/errInternal.jsp");
 	  }
 	}
    private void gotoPage(HttpServletRequest request, 

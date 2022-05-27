@@ -25,6 +25,34 @@ public class ItemDAO {
 			throw new DAOException("JDBCドライバの登録に失敗しました。");
 		}
 	}
+		
+	//ソート機能追加↓
+		public List<ItemBean> findAll() throws DAOException{
+			String sql = "SELECT * FROM item";
+		
+			try(
+				Connection con = DriverManager.getConnection(url, user, pass);
+				PreparedStatement st = con.prepareStatement(sql);
+				ResultSet rs = st.executeQuery();){
+				
+				List<ItemBean> list = new ArrayList<ItemBean>();
+				while (rs.next()) {
+					int code = rs.getInt("code");
+					String name = rs.getString("name");
+					int price = rs.getInt("price");
+					String image = rs.getString("image");
+					ItemBean bean = new ItemBean(code, name, price, image);
+					list.add(bean);
+				}
+				return list;
+			}catch(SQLException e){
+				e.printStackTrace();
+				throw new DAOException("レコードの取得に失敗しました。");
+			}
+		}
+		//ソート機能追加↑
+
+	
 	
 	public List<CategoryBean> findAllCategory() throws DAOException{
 		String sql = "SELECT * FROM category ORDER BY code";
@@ -47,6 +75,8 @@ public class ItemDAO {
 			throw new DAOException("レコードの取得に失敗しました。");
 		}
 	}
+	
+	//ここでカテゴリコードを取ってくる
 
 	public List<ItemBean> findByCategory(int categoryCode) throws DAOException{
 		String sql = "SELECT * FROM item WHERE category_code = ? ORDER BY code";
@@ -59,7 +89,7 @@ public class ItemDAO {
 				try(
 					ResultSet rs = st.executeQuery();){
 					List<ItemBean> list = new ArrayList<ItemBean>();
-					while(rs.next()) {
+					while(rs.next()) {			
 						int code = rs.getInt("code");
 						String name = rs. getString("name");
 						int price = rs.getInt("price");
@@ -107,8 +137,43 @@ public ItemBean findByPrimaryKey(int key) throws DAOException{
 			e.printStackTrace();
 			throw new DAOException("レコードの取得に失敗しました。");
 		}
-		
+}
+	//ソート機能追加
+	public  List<ItemBean> sortPrice(boolean isAscending, int categoryCode) throws DAOException {
+		  String sql;
+		  if (isAscending)
+			  sql = "SELECT * FROM item where category_code = ? ORDER BY price";
+		  else
+			  sql = "SELECT * FROM item where category_code = ? ORDER BY price desc";
+		  
+		  try(
+				Connection con = DriverManager.getConnection(url, user, pass);
+			    PreparedStatement st = con.prepareStatement(sql);){
+				  st.setInt(1, categoryCode);
+			try (  
+				ResultSet rs = st.executeQuery();){
+			  List<ItemBean> list = new ArrayList<ItemBean>();
+			  while (rs.next()) {
+				  int code = rs.getInt("code");
+				  String name = rs.getString("name");
+				  int price = rs.getInt("price");
+				  String image = rs.getString("image");
+				  ItemBean bean = new ItemBean(code, name, price, image);
+				  list.add(bean);
+			  }
+			  return list;
+		  }catch (SQLException e) {
+			  e.printStackTrace();
+			  throw new DAOException("レコードの操作に失敗しました。");
+			  
+		  }
+	   }catch (SQLException e) {
+			  e.printStackTrace();
+			  throw new DAOException("レコードの操作に失敗しました。");
+	   }
+	}
 	
+
 	}
 
-}
+

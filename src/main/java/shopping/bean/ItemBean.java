@@ -9,6 +9,7 @@ public class ItemBean implements Serializable{
 	private int quantity;
 	private String image;
 	
+	
 	public ItemBean(int code, String name, int price, String image) {
 		this.code = code;
 		this.name = name;
@@ -16,6 +17,7 @@ public class ItemBean implements Serializable{
 		this.image = image;
 	}
 
+	
 	public ItemBean(int code, String name, int price, String image, int quantity){
 		this.code = code;
 		this.name = name;
@@ -68,6 +70,8 @@ public class ItemBean implements Serializable{
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+	
 
 	
 }

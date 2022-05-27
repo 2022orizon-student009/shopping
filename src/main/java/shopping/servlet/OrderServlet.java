@@ -70,6 +70,7 @@ public class OrderServlet extends HttpServlet {
 				
 		
 				try {
+					@SuppressWarnings("unused")
 					int telp = Integer.parseInt(tel);
 				}catch(NumberFormatException e) {
 					request.setAttribute("message2", "電話番号は数値を入力してください。");
