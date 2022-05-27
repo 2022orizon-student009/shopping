@@ -26,14 +26,24 @@
   	font-weight: bold;
   	text-align: center
 	}
-	
-	-->
-	.flame {
-padding: 1px;
-margin: 2em auto;
-width: 100%;
-color: black;
-background: #66FF99;
+	  h2 {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem 1rem 4rem;
+  color: #fff;
+  border-radius: 100vh 0 0 100vh;
+  background:#8FBC8F;
+}
+
+h2:before {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: 10px;
+  width: 14px;
+  height: 14px;
+  content: '';
+  border-radius: 50%;
+  background: #fff;
 }
 
 	</style>
@@ -49,7 +59,7 @@ background: #66FF99;
 <span style="border-bottom: solid 5px yellow;"> 豊富な品揃え、5000以上ご購入で送料無料、注文の翌日にはお届け</span><br><br>
 買うならケバB！<br><br><br>
 </h3>
-<div class="flame"><h3>ケバBの占いコーナー</h3></div>
+<h2>ケバBの占いコーナー</h2>
 <Marquee>
 今日のラッキーアイテムは
 <c:choose>

@@ -35,10 +35,12 @@ public class CartServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 				
 		try {
 			String action = request.getParameter("action");
+			request.setAttribute("action", action);
+			
 			if(action == null || action.length()==0 || action.equals("show")) {
 				gotoPage(request,response, "/cart.jsp");
 				
@@ -49,6 +51,7 @@ public class CartServlet extends HttpServlet {
 				HttpSession session = request.getSession(true);
 				CartBean cart = (CartBean)session.getAttribute("cart");
 				
+				
 				if (cart == null) {
 					cart = new CartBean();
 					session.setAttribute("cart", cart);}
@@ -58,12 +61,20 @@ public class CartServlet extends HttpServlet {
 				
 				int categoryCode = Integer.parseInt(request.getParameter("code"));
 				ItemDAO dao = new ItemDAO();
+				
 				List<ItemBean> reccomends = dao.findByCategory(categoryCode);
 				
+				//カートに入れた商品をおすすめからはじく
+				for(int i = 0; i< reccomends.size() ; i++) {
+					if(bean.getCode() == reccomends.get(i).getCode()) {
+						reccomends.remove(i);
+						break;
+				}}
+				
+				
 			    Collections.shuffle(reccomends);
-			   
 			     
-			     request.setAttribute("reccomendlist" , reccomends);
+			    request.setAttribute("reccomendlist" , reccomends);
 				request.setAttribute("category" ,categoryCode);
 				
 				cart.addcart(bean, quantity);	
@@ -83,6 +94,7 @@ public class CartServlet extends HttpServlet {
 							request.setAttribute("message", "正しく操作してください。");
 							gotoPage(request, response, "/errInternal.jsp");
 							return;}
+						
 						
 						int code = Integer.parseInt(request.getParameter("item_code"));
 						cart.deleteCart(code);

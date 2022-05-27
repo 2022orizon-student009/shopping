@@ -15,13 +15,31 @@
 	background-image: url("/shopping/adpDSC_9246.jpg");
 	background-size: cover;
 	}
-		-->
+h2 {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem 1rem 4rem;
+  color: #fff;
+  border-radius: 100vh 0 0 100vh;
+  background:#8FBC8F;
+}
+
+h2:before {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: 10px;
+  width: 14px;
+  height: 14px;
+  content: '';
+  border-radius: 50%;
+  background: #fff;
+}
 </style>
 </head>
 <body>
 
 <jsp:include page="/menu.jsp" /><br>
-<h2>ご注文ありがとうございました。</h2>
+<h2>ご注文ありがとうございました。</h2><br>
 お客様の注文番号は<font color="red" size=5>${orderNumber}</font>になります。
 
 <%

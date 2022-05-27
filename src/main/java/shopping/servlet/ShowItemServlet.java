@@ -41,7 +41,7 @@ public class ShowItemServlet extends HttpServlet {
 			//ItemDAO dao = new ItemDAO();//
 			
 			if(action == null || action.length() == 0) {
-				gotoPage(request,response, "/top.jsp");
+				gotoPage(request,response, "/StartUp.jsp");
 				/*List<ItemBean> list = dao.findAll();
 				request.setAttribute("items", list);
 				gotoPage(request, response, "/top.jsp");*/
@@ -73,7 +73,7 @@ public class ShowItemServlet extends HttpServlet {
 	try {
 		String action = request.getParameter("action");
 		if (action == null || action.length() == 0 || action.equals("top")) {
-			gotoPage(request, response, "/top.jsp");
+			gotoPage(request, response, "/StartUp.jsp");
 		} else if (action.equals("list")) {
 			int categoryCode = Integer.parseInt(request.getParameter("code"));
 			ItemDAO dao = new ItemDAO();

@@ -12,6 +12,49 @@
 	background-color: #CCFF99;
 	background-image: url("/shopping/adpDSC_9246.jpg");
 	background-size: cover;
+	
+		.button2 {
+  display       : inline-block;
+  border-radius : 5%;
+  font-size     : 18pt;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 12px 12px;
+  background    : #ff7f00;
+  color         : #ffffff;
+  line-height   : 1em;
+  transition    : .3s;
+  box-shadow    : 6px 6px 3px #666666;
+  border        : 2px solid #ff7f00;
+}
+.button2:hover {
+  box-shadow    : none;
+  color         : #ff7f00;
+  background    : #ffffff;
+}
+table{
+     background-color:#fffacd}
+  h2 {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem 1rem 4rem;
+  color: #fff;
+  border-radius: 100vh 0 0 100vh;
+  background:#8FBC8F;
+}
+
+h2:before {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: 10px;
+  width: 14px;
+  height: 14px;
+  content: '';
+  border-radius: 50%;
+  background: #fff;
+}
+		
+		-->
 	}
 	
 		-->
@@ -69,8 +112,8 @@
 </c:if>
 
 <!-- jsp にもコピーしてある -->
-<jsp:include page="/reccomend.jsp" /><br>
-
+	<br><br><br>
+	<jsp:include page="/reccomend.jsp" /><br>
 	
 
 </body>

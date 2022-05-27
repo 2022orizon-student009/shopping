@@ -14,6 +14,46 @@
 	background-image: url("/shopping/adpDSC_9246.jpg");
 	background-size: cover;
 	}
+	.button2 {
+  display       : inline-block;
+  border-radius : 5%;
+  font-size     : 18pt;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 12px 12px;
+  background    : #ff7f00;
+  color         : #ffffff;
+  line-height   : 1em;
+  transition    : .3s;
+  box-shadow    : 6px 6px 3px #666666;
+  border        : 2px solid #ff7f00;
+}
+.button2:hover {
+  box-shadow    : none;
+  color         : #ff7f00;
+  background    : #ffffff;
+}
+table{
+background-color:#fffacd}
+h3 {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem 1rem 4rem;
+  color: #fff;
+  border-radius: 100vh 0 0 100vh;
+  background:#8FBC8F;
+}
+
+h3:before {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: 10px;
+  width: 14px;
+  height: 14px;
+  content: '';
+  border-radius: 50%;
+  background: #fff;
+}
 	
 	
 	-->
@@ -22,7 +62,7 @@
 <body>
 
 <jsp:include page="/menu.jsp"/><br>
-<h3>下記の内容で注文を行いますか？</h3>
+<h2>下記の内容で注文を行いますか？</h2>
 <h3>ご注文商品</h3>
 
 <c:if test="${not empty cart.items}">
@@ -94,9 +134,10 @@
 		}
 	}
 	%>
-	<h3>お支払方法：<%=selectedPayment %></h3>
+	<h3>お支払方法</h3><br>
+	<h2><%=selectedPayment %></h2>
 	<br>
-	<input type="submit" value="この内容で注文">
+	<input type="submit" value="この内容で注文" class="button2">
 </form>
 </c:if>
 </body>

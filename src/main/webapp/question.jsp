@@ -12,10 +12,29 @@
 	background-image: url("/shopping/adpDSC_9246.jpg");
 	background-size: cover;
 	}
-		-->
+	h3 {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem 1rem 4rem;
+  color: #fff;
+  border-radius: 100vh 0 0 100vh;
+  background:#8FBC8F;
+}
+
+h3:before {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: 10px;
+  width: 14px;
+  height: 14px;
+  content: '';
+  border-radius: 50%;
+  background: #fff;
+}	-->
 </style>
 </head>
 <body>
+<h3>アンケート</h3><br>
 <form action="/shopping/QuestionServlet" method="post">
 <h4>1.ケバBショッピングをどれくらいの頻度で利用していますか？（１番近いものをお選びください）</h4>
 <input type="radio" name="howoften" value="year">年に1回<br>

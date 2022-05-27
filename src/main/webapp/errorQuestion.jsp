@@ -17,6 +17,7 @@ body {
 <body>
 
 <h1>${message}</h1>
+<h3><a href="/shopping/question.jsp">アンケートに戻る</a></h3>
 
 </body>
 </html>
